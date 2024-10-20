@@ -1,3 +1,4 @@
+import { PageHeader } from "@/components/page-header";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,5 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <div className="">01 - Intro</div>;
+  return (
+    <div className="">
+      <PageHeader>Home</PageHeader>
+    </div>
+  );
 }

@@ -1,5 +1,8 @@
+import { OrbitIcon } from "lucide-react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Link from "next/link";
+import type { ReactNode } from "react";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -18,6 +21,11 @@ export const metadata: Metadata = {
   description: "RSC Workshop",
 };
 
+const routes = {
+  home: "/",
+  "01-intro": "/01-intro",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,9 +36,36 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} flex h-screen text-sky-800 antialiased`}
       >
-        <div className="w-64 bg-sky-100 p-8 font-extrabold">RSC Workshop</div>
+        <div className="w-64 bg-sky-100 p-8">
+          <p className="flex items-center gap-2">
+            <OrbitIcon className="size-8 text-sky-300" />
+            <span className="font-extrabold">RSC Workshop</span>
+          </p>
+
+          <div className="mt-10 flex flex-col gap-4">
+            <SidebarLink href={routes.home}>Home</SidebarLink>
+            <SidebarLink href={routes["01-intro"]}>01 - Intro</SidebarLink>
+          </div>
+        </div>
         <div className="flex-1 bg-sky-50 p-8">{children}</div>
       </body>
     </html>
+  );
+}
+
+function SidebarLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      className="rounded-lg bg-sky-50 p-2 shadow-sm hover:bg-slate-200"
+    >
+      {children}
+    </Link>
   );
 }
