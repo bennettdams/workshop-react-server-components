@@ -7,7 +7,9 @@ export const dynamic = "force-dynamic";
 
 // self.__next_f
 
-export default function Page() {
+export default async function Page() {
+  // const count = await fetchCount();
+
   return (
     <div>
       <PageHeader>02 - Client boundary</PageHeader>
@@ -19,15 +21,17 @@ export default function Page() {
 
         {/* <Counter>
           <p>Hey from the server (children) </p>
-        </Counter>
-        
-        <Counter
+          </Counter>
+          
+          <Counter
           slot={
             <div>
-              <p>Hey from the server (slot)</p>
+            <p>Hey from the server (slot)</p>
             </div>
-          }
-        /> */}
+            }
+            /> */}
+
+        {/* <Counter initialCount={count} /> */}
 
         <RefreshPageButton />
       </div>

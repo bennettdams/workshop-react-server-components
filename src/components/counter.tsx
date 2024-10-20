@@ -4,12 +4,16 @@ import { type ReactNode, useState } from "react";
 import { Button } from "./ui/button";
 
 export function Counter({
+  // initialCount = 0,
   slot,
   children,
 }: {
+  // initialCount?: number;
   slot?: ReactNode;
   children?: ReactNode;
 }): JSX.Element {
+  // The initial count is for demonstration purposes only. It is not synced with props.
+  // const [count, setCount] = useState(initialCount);
   const [count, setCount] = useState(0);
 
   return (

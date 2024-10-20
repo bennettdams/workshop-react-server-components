@@ -4,10 +4,16 @@ export type ApiUser = {
 };
 
 export async function fetchUsers(): Promise<ApiUser[]> {
-  await new Promise((r) => setTimeout(r, 3000));
+  await new Promise((r) => setTimeout(r, 3_000));
 
   return [
     { id: "1", name: "Alice" },
     { id: "2", name: "Bob" },
   ];
+}
+
+export async function fetchCount(): Promise<number> {
+  await new Promise((r) => setTimeout(r, 2_000));
+
+  return 7;
 }
