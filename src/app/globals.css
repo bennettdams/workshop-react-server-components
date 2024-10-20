@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary: #993a58;
+}
+
 @layer base {
   :root {
     --radius: 0.5rem;

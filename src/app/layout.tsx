@@ -8,12 +8,12 @@ import "./globals.css";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
-  weight: "100 900",
+  weight: "100 800",
 });
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
-  weight: "100 900",
+  weight: "100 800",
 });
 
 export const metadata: Metadata = {
@@ -38,7 +38,7 @@ export default function RootLayout({
       >
         <div className="w-64 bg-sky-100 p-8">
           <p className="flex items-center gap-2">
-            <OrbitIcon className="size-8 text-sky-300" />
+            <OrbitIcon className="text-primary size-8" />
             <span className="font-extrabold">RSC Workshop</span>
           </p>
 
