@@ -26,9 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} flex h-screen text-sky-800 antialiased`}
       >
-        {children}
+        <div className="w-64 bg-sky-100 p-8 font-extrabold">RSC Workshop</div>
+        <div className="flex-1 bg-sky-50 p-8">{children}</div>
       </body>
     </html>
   );
