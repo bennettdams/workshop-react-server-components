@@ -6,9 +6,9 @@ import { UserList } from "@/components/user-list";
 
 export const dynamic = "force-dynamic";
 
-// self.__next_f
-
 export default async function Page() {
+  // const userListPromise = fetchUsers();
+
   return (
     <div>
       <PageHeader>02 - Streaming</PageHeader>
@@ -21,6 +21,10 @@ export default async function Page() {
           <UserList />
           {/* </Suspense> */}
         </div>
+
+        {/* <Suspense fallback={"Load "}>
+          <UserListPromise userListPromise={userListPromise} />
+        </Suspense> */}
 
         <RefreshPageButton />
       </div>
