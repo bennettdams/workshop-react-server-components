@@ -12,7 +12,7 @@ export default async function Page() {
 
   return (
     <div>
-      <PageHeader>02 - Client boundary</PageHeader>
+      <PageHeader>03 - Client boundary</PageHeader>
 
       <div className="space-y-10">
         <Now />

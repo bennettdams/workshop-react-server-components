@@ -24,7 +24,8 @@ export const metadata: Metadata = {
 const routes = {
   home: "/",
   "01-intro": "/01-intro",
-  "02-client-boundary": "/02-client-boundary",
+  "02-streaming": "/02-streaming",
+  "03-client-boundary": "/03-client-boundary",
 };
 
 export default function RootLayout({
@@ -46,8 +47,11 @@ export default function RootLayout({
           <div className="mt-10 flex flex-col gap-4">
             <SidebarLink href={routes.home}>Home</SidebarLink>
             <SidebarLink href={routes["01-intro"]}>01 - Intro</SidebarLink>
-            <SidebarLink href={routes["02-client-boundary"]}>
-              02 - Client boundary
+            <SidebarLink href={routes["02-streaming"]}>
+              02 - Streaming
+            </SidebarLink>
+            <SidebarLink href={routes["03-client-boundary"]}>
+              03 - Client boundary
             </SidebarLink>
           </div>
         </div>
