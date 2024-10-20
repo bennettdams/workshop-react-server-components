@@ -1,9 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { type ReactNode, useState } from "react";
 import { Button } from "./ui/button";
 
-export function Counter(): JSX.Element {
+export function Counter({
+  slot,
+  children,
+}: {
+  slot?: ReactNode;
+  children?: ReactNode;
+}): JSX.Element {
   const [count, setCount] = useState(0);
 
   return (
@@ -11,9 +17,24 @@ export function Counter(): JSX.Element {
       <p>
         Count: <span className="font-bold">{count}</span>
       </p>
+
       <div>
         <Button onClick={() => setCount((prev) => prev + 1)}>+</Button>
       </div>
+
+      {children && (
+        <div>
+          <p>Children:</p>
+          <div>{children}</div>
+        </div>
+      )}
+
+      {slot && (
+        <div>
+          <p>Slot:</p>
+          <div>{slot}</div>
+        </div>
+      )}
     </div>
   );
 }
