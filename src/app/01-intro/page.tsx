@@ -1,33 +1,31 @@
-import { Counter } from "@/components/counter";
 import { Now } from "@/components/now";
 import { PageHeader } from "@/components/page-header";
 import { RefreshPageButton } from "@/components/refresh-page-button";
+import { fetchUsers } from "@/data/api";
 
 export const dynamic = "force-dynamic";
 
 // self.__next_f
 
-export default function Page() {
+export default async function Page() {
+  const users = await fetchUsers();
+
   return (
     <div>
-      <PageHeader>01 - Introduction</PageHeader>
+      <PageHeader>01 - Intro</PageHeader>
 
       <div className="space-y-10">
         <Now />
 
-        <Counter />
+        <div>
+          <p className="font-bold">Users:</p>
 
-        {/* <Counter>
-          <p>Hey from the server (children) </p>
-        </Counter>
-        
-        <Counter
-          slot={
-            <div>
-              <p>Hey from the server (slot)</p>
-            </div>
-          }
-        /> */}
+          <div>
+            {users.map((user) => (
+              <p key={user.id}>Name: {user.name}</p>
+            ))}
+          </div>
+        </div>
 
         <RefreshPageButton />
       </div>

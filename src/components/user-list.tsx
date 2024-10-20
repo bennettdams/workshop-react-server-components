@@ -5,7 +5,7 @@ export async function UserList() {
 
   return (
     <div>
-      <p>Users:</p>
+      <p className="font-bold">Users:</p>
 
       <div>
         {users.map((user) => (
