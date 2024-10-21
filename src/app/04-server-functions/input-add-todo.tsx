@@ -1,9 +1,8 @@
 "use client";
 
-import { addTodo } from "@/actions/actions";
+import { addTodoAction } from "@/actions/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-// import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 
 export function InputAddTodo() {
@@ -12,6 +11,8 @@ export function InputAddTodo() {
 
   return (
     <div>
+      <p>Form on the client</p>
+
       <Input
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
@@ -19,9 +20,10 @@ export function InputAddTodo() {
       />
 
       <Button
+        className="mt-2"
         onClick={async () => {
           startTransition(async () => {
-            await addTodo({
+            await addTodoAction({
               id: Math.random().toString(),
               text: inputText,
             });

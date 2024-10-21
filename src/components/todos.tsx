@@ -1,5 +1,8 @@
-import { fetchTodos } from "@/data/api";
+import { db, fetchTodos } from "@/data/api";
+import { revalidatePath } from "next/cache";
 import { Now } from "./now";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 export async function Todos() {
   const todos = await fetchTodos();
@@ -16,7 +19,33 @@ export async function Todos() {
 
       <Now />
 
-      {/* <InputAddTodo /> */}
+      <div className="mt-10">
+        <p>Form on the server</p>
+
+        <form
+          action={async (formData) => {
+            "use server";
+            console.log("Form data:", formData);
+            console.log("Input text:", formData.get("my-input"));
+            const inputText = formData.get("my-input");
+
+            if (!inputText || typeof inputText !== "string")
+              throw new Error("Missing input text");
+
+            db.todos = [
+              ...db.todos,
+              { id: Math.random().toString(), text: inputText },
+            ];
+
+            revalidatePath("/04-server-functions");
+          }}
+        >
+          <Input name="my-input" type="text" placeholder="Some text.." />
+          <Button className="mt-2">Add</Button>
+        </form>
+
+        {/* <InputAddTodo /> */}
+      </div>
     </div>
   );
 }

@@ -7,6 +7,8 @@ import { InputAddTodo } from "./input-add-todo";
 
 export const dynamic = "force-dynamic";
 
+// cURL
+
 export default async function Page() {
   return (
     <div>
