@@ -1,17 +1,20 @@
 import { fetchUsers } from "@/data/api";
+import { Now } from "./now";
 
-export async function UserList() {
-  const users = await fetchUsers();
+export async function UserList({ fakeTime }: { fakeTime?: number }) {
+  const users = await fetchUsers(fakeTime);
 
   return (
     <div>
       <p className="font-bold">Users:</p>
 
-      <div>
+      <ul className="list-disc">
         {users.map((user) => (
-          <p key={user.id}>Name: {user.name}</p>
+          <li key={user.id}>{user.name}</li>
         ))}
-      </div>
+      </ul>
+
+      <Now />
     </div>
   );
 }

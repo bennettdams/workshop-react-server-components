@@ -5,9 +5,9 @@ export type ApiUser = {
   name: string;
 };
 
-export async function fetchUsers(): Promise<ApiUser[]> {
+export async function fetchUsers(fakeTime = 2_000): Promise<ApiUser[]> {
   unstable_noStore();
-  await new Promise((r) => setTimeout(r, 2_000));
+  await new Promise((r) => setTimeout(r, fakeTime));
 
   return [
     { id: "1", name: "Alice" },

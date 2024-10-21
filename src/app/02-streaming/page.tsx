@@ -23,6 +23,22 @@ export default async function Page() {
           {/* </Suspense> */}
         </div>
 
+        {/* <div>
+          <Suspense fallback="Loading users.. 1 second">
+            <UserList fakeTime={1_000} />
+          </Suspense>
+        </div>
+        <div>
+          <Suspense fallback="Loading users.. 3 seconds">
+            <UserList fakeTime={3_000} />
+          </Suspense>
+        </div>
+        <div>
+          <Suspense fallback="Loading users.. 5 seconds">
+            <UserList fakeTime={5_000} />
+          </Suspense>
+        </div> */}
+
         {/* <Suspense fallback={"Load "}>
           <UserListPromise userListPromise={userListPromise} />
         </Suspense> */}

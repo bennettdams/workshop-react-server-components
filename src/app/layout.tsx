@@ -40,7 +40,7 @@ export default function RootLayout({
       >
         <div className="w-64 bg-sky-100 p-8">
           <p className="flex items-center gap-2">
-            <OrbitIcon className="text-primary size-8" />
+            <OrbitIcon className="size-8 text-primary" />
             <span className="font-extrabold">RSC Workshop</span>
           </p>
 
@@ -71,7 +71,7 @@ function SidebarLink({
   return (
     <Link
       href={href}
-      className="active:bg-primary rounded-lg bg-sky-50 p-2 shadow-sm hover:bg-slate-200"
+      className="rounded-lg bg-sky-50 p-2 shadow-sm hover:bg-slate-200 active:bg-primary"
     >
       {children}
     </Link>

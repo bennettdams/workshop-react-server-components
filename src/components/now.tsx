@@ -1,3 +1,5 @@
 export function Now() {
-  return <p>Now: {new Date().toISOString()}</p>;
+  return (
+    <p className="font-bold text-primary">Now: {new Date().toISOString()}</p>
+  );
 }

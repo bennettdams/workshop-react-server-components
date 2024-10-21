@@ -11,7 +11,7 @@ export function Counter({
   // initialCount?: number;
   slot?: ReactNode;
   children?: ReactNode;
-}): JSX.Element {
+}) {
   // The initial count is for demonstration purposes only. It is not synced with props.
   // const [count, setCount] = useState(initialCount);
   const [count, setCount] = useState(0);
