@@ -19,6 +19,7 @@ export default async function Page() {
         <div>
           {/* <Suspense fallback={"Loading users.."}> */}
           <UserList />
+          {/* <UserList /> */}
           {/* </Suspense> */}
         </div>
 

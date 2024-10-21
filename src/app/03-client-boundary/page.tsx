@@ -31,6 +31,10 @@ export default async function Page() {
 
         {/* <Counter initialCount={count} /> */}
 
+        {/* <Suspense fallback="Loading users..">
+          <UserList />
+        </Suspense> */}
+
         <RefreshPageButton />
       </div>
     </div>

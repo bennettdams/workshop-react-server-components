@@ -1,5 +1,6 @@
 "use client";
 
+import { RefreshCcwIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "./ui/button";
@@ -17,7 +18,8 @@ export function RefreshPageButton() {
           router.refresh();
         }}
       >
-        Refresh page
+        <RefreshCcwIcon />
+        <span>Refresh page</span>
       </Button>
 
       <p className="mt-2">Clicked at: {clickedAt?.toISOString() ?? "-"}</p>
