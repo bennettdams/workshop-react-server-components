@@ -1,5 +1,27 @@
 import { unstable_noStore } from "next/cache";
 
+export type ApiTodo = {
+  id: string;
+  text: string;
+};
+
+const todosInitial: ApiTodo[] = [
+  { id: "1", text: "Learn React" },
+  { id: "2", text: "Understand caching" },
+  { id: "3", text: "Start woodworking" },
+];
+
+export const db: { todos: ApiTodo[] } = {
+  todos: todosInitial,
+};
+
+export async function fetchTodos(): Promise<ApiTodo[]> {
+  unstable_noStore();
+  await new Promise((r) => setTimeout(r, 200));
+
+  return db.todos;
+}
+
 export type ApiUser = {
   id: string;
   name: string;

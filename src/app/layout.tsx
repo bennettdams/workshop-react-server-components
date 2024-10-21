@@ -26,6 +26,7 @@ const routes = {
   "01-intro": "/01-intro",
   "02-streaming": "/02-streaming",
   "03-client-boundary": "/03-client-boundary",
+  "04-server-functions": "/04-server-functions",
 };
 
 export default function RootLayout({
@@ -52,6 +53,9 @@ export default function RootLayout({
             </SidebarLink>
             <SidebarLink href={routes["03-client-boundary"]}>
               03 - Client boundary
+            </SidebarLink>
+            <SidebarLink href={routes["04-server-functions"]}>
+              04 - Server Functions
             </SidebarLink>
           </div>
         </div>
