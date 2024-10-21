@@ -7,6 +7,10 @@ import { InputAddTodo } from "./input-add-todo";
 
 export const dynamic = "force-dynamic";
 
+// form on server
+// form on server with action
+// client input
+// action ID -> hidden input
 // cURL
 
 export default async function Page() {

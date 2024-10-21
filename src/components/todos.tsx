@@ -1,3 +1,4 @@
+import { FormAddTodo } from "@/app/04-server-functions/form-add-todo";
 import { db, fetchTodos } from "@/data/api";
 import { revalidatePath } from "next/cache";
 import { Now } from "./now";
@@ -27,6 +28,7 @@ export async function Todos() {
             "use server";
             console.log("Form data:", formData);
             console.log("Input text:", formData.get("my-input"));
+
             const inputText = formData.get("my-input");
 
             if (!inputText || typeof inputText !== "string")
@@ -43,9 +45,17 @@ export async function Todos() {
           <Input name="my-input" type="text" placeholder="Some text.." />
           <Button className="mt-2">Add</Button>
         </form>
-
-        {/* <InputAddTodo /> */}
       </div>
+
+      <div className="mt-10">
+        <p>Form on the server with action</p>
+
+        <FormAddTodo todos={todos} />
+      </div>
+
+      {/* <div className="mt-10">
+        <InputAddTodo />
+      </div> */}
     </div>
   );
 }
