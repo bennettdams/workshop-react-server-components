@@ -13,6 +13,7 @@ export async function fetchUsers(): Promise<ApiUser[]> {
     { id: "1", name: "Alice" },
     { id: "2", name: "Bob" },
     { id: "3", name: `Random: ${Math.random()}` },
+    { id: "4", name: `Fetched at: ${new Date().toISOString()}` },
   ];
 }
 
