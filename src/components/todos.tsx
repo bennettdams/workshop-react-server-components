@@ -57,7 +57,7 @@ export async function Todos() {
       <div className="mt-10">
         <p>Input (Client) with transition</p>
 
-        <InputAddTodo />
+        <InputAddTodo todos={todos} />
       </div>
     </div>
   );

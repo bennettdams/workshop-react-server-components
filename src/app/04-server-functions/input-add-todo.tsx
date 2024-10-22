@@ -3,11 +3,13 @@
 import { addTodoAction } from "@/actions/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useState, useTransition } from "react";
+import { ApiTodo } from "@/data/api";
+import { useOptimistic, useState, useTransition } from "react";
 
-export function InputAddTodo() {
+export function InputAddTodo({ todos }: { todos: ApiTodo[] }) {
   const [inputText, setInputText] = useState("");
   const [isPending, startTransition] = useTransition();
+  const [todosOptimistic, setTodosOptimistic] = useOptimistic(todos);
 
   return (
     <div>
@@ -20,11 +22,13 @@ export function InputAddTodo() {
       <Button
         className="mt-2"
         onClick={async () => {
+          const todoNew: ApiTodo = {
+            id: Math.random().toString(),
+            text: inputText,
+          };
           startTransition(async () => {
-            await addTodoAction({
-              id: Math.random().toString(),
-              text: inputText,
-            });
+            setTodosOptimistic((prev) => [...prev, todoNew]);
+            await addTodoAction(todoNew);
             setInputText("");
           });
         }}
@@ -32,6 +36,15 @@ export function InputAddTodo() {
         {isPending ? "Loading.." : "Add"}
         {/* <span>Add</span> */}
       </Button>
+
+      <div className="mt-4">
+        <h3>Optimistic:</h3>
+        <ul>
+          {todosOptimistic.map((todo) => (
+            <li key={todo.id}>{todo.text}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
