@@ -19,7 +19,7 @@ export default async function Page() {
         <div>
           {/* <Suspense fallback={"Loading users.."}> */}
           <UserList />
-          {/* <UserList /> */}
+          {/* <UserList fakeTime={3_000} /> */}
           {/* </Suspense> */}
         </div>
 

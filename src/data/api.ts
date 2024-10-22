@@ -11,7 +11,7 @@ const todosInitial: ApiTodo[] = [
   { id: "3", text: "Start woodworking" },
 ];
 
-/** Mock database. This only works in dev, not for the built application. */
+/** Fake database. This only works in dev, not for the built application. */
 export const db: { todos: ApiTodo[] } = {
   todos: todosInitial,
 };

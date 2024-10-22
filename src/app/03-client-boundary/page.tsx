@@ -19,17 +19,17 @@ export default async function Page() {
 
         {/* <Counter>
           <p>Hey from the server (children) </p>
-          </Counter>
-          
-          <Counter
+          <UserList />
+        </Counter> */}
+
+        {/* <Counter
           slot={
             <div>
-            <p>Hey from the server (slot)</p>
+              <p>Hey from the server (slot)</p>
+              <UserList />
             </div>
-            }
-            /> */}
-
-        {/* <Counter initialCount={count} /> */}
+          }
+        /> */}
 
         {/* <Suspense fallback="Loading users..">
           <UserList />

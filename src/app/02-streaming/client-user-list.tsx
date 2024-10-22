@@ -1,3 +1,5 @@
+"use client";
+
 import { ApiUser } from "@/data/api";
 import { use } from "react";
 
