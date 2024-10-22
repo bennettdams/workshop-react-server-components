@@ -3,15 +3,18 @@ import { PageHeader } from "@/components/page-header";
 import { RefreshPageButton } from "@/components/refresh-page-button";
 import { Todos } from "@/components/todos";
 import { Suspense } from "react";
-import { InputAddTodo } from "./input-add-todo";
 
 export const dynamic = "force-dynamic";
 
 // form on server
-// form on server with action
-// client input
+// form with action state
+// input with transition
+// build output
 // action ID -> hidden input
+// returns serialized component tree -> update page
 // cURL
+
+// action={foo} -> Server Action | onClick={foo} -> Server Function
 
 export default async function Page() {
   return (
@@ -24,8 +27,6 @@ export default async function Page() {
         <Suspense fallback="Loading todos..">
           <Todos />
         </Suspense>
-
-        <InputAddTodo />
 
         <RefreshPageButton />
       </div>

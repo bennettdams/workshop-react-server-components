@@ -7,9 +7,10 @@ import { ApiTodo } from "@/data/api";
 import { useActionState } from "react";
 
 export function FormAddTodo({ todos }: { todos: ApiTodo[] }) {
+  // When using useActionState, React will also automatically replay form submissions entered before hydration finishes. This means users can interact with the app even before the app has hydrated.
   const [formState, formAction, isPending] = useActionState(
     addTodoActionForForm,
-    todos,
+    { status: "ok", data: todos, error: null },
   );
 
   return (
@@ -19,13 +20,19 @@ export function FormAddTodo({ todos }: { todos: ApiTodo[] }) {
 
       <p>Form state:</p>
 
-      {formState.map((todo) => (
-        <pre key={todo.id}>
-          <p>
-            {todo.id} - {todo.text}
-          </p>
+      {formState.status === "error" ? (
+        <pre>
+          <p>Error: {formState.error}</p>
         </pre>
-      ))}
+      ) : (
+        formState.data.map((todo) => (
+          <pre key={todo.id}>
+            <p>
+              {todo.id} - {todo.text}
+            </p>
+          </pre>
+        ))
+      )}
     </form>
   );
 }

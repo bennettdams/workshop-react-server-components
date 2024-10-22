@@ -1,5 +1,7 @@
 "use server";
 
+// ######### All exported functions in this file will automatically be available as endpoints publicly.
+
 import { type ApiTodo, db } from "@/data/api";
 import { revalidatePath } from "next/cache";
 
@@ -14,10 +16,22 @@ export async function addTodoAction(todoNew: ApiTodo): Promise<ApiTodo[]> {
   return db.todos;
 }
 
+type FormState =
+  | {
+      status: "ok";
+      data: ApiTodo[];
+      error: null;
+    }
+  | {
+      status: "error";
+      data: null;
+      error: string;
+    };
+
 export async function addTodoActionForForm(
-  prevState: ApiTodo[],
+  prevState: FormState,
   formData: FormData,
-): Promise<ApiTodo[]> {
+): Promise<FormState> {
   console.log("❎ Called: addTodoActionForForm:");
   console.log("Prev state:", prevState);
   console.log("Form data:", formData);
@@ -34,5 +48,9 @@ export async function addTodoActionForForm(
 
   revalidatePath("/04-server-functions");
 
-  return db.todos;
+  if (Math.random() > 0.5) {
+    return { status: "ok", data: db.todos, error: null };
+  } else {
+    return { status: "error", data: null, error: "Something went wrong" };
+  }
 }

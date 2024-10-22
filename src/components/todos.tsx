@@ -1,4 +1,5 @@
 import { FormAddTodo } from "@/app/04-server-functions/form-add-todo";
+import { InputAddTodo } from "@/app/04-server-functions/input-add-todo";
 import { db, fetchTodos } from "@/data/api";
 import { revalidatePath } from "next/cache";
 import { Now } from "./now";
@@ -48,14 +49,16 @@ export async function Todos() {
       </div>
 
       <div className="mt-10">
-        <p>Form on the server with action</p>
+        <p>Form (Client) with action state</p>
 
         <FormAddTodo todos={todos} />
       </div>
 
-      {/* <div className="mt-10">
+      <div className="mt-10">
+        <p>Input (Client) with transition</p>
+
         <InputAddTodo />
-      </div> */}
+      </div>
     </div>
   );
 }

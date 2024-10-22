@@ -11,8 +11,6 @@ export function InputAddTodo() {
 
   return (
     <div>
-      <p>Form on the client</p>
-
       <Input
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
