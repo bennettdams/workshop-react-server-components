@@ -3,10 +3,10 @@
 import { addTodoActionForForm } from "@/actions/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ApiTodo } from "@/data/api";
+import { TodoFromDB } from "@/data/api";
 import { useActionState } from "react";
 
-export function FormAddTodo({ todos }: { todos: ApiTodo[] }) {
+export function FormAddTodo({ todos }: { todos: TodoFromDB[] }) {
   // When using useActionState, React will also automatically replay form submissions entered before hydration finishes. This means users can interact with the app even before the app has hydrated.
   const [formState, formAction, isPending] = useActionState(
     addTodoActionForForm,

@@ -1,12 +1,12 @@
 "use client";
 
-import { ApiUser } from "@/data/api";
+import { UserFromDB } from "@/data/api";
 import { use } from "react";
 
 export function UserListPromise({
   userListPromise,
 }: {
-  userListPromise: Promise<ApiUser[]>;
+  userListPromise: Promise<UserFromDB[]>;
 }) {
   console.log("UserListPromise", userListPromise);
   const users = use(userListPromise);

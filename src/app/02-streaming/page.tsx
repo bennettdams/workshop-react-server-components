@@ -7,7 +7,7 @@ import { UserList } from "@/components/user-list";
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
-  // const userListPromise = fetchUsers();
+  // const userListPromise = getUsersFromDB();
 
   return (
     <div>

@@ -1,8 +1,8 @@
-import { fetchUsers } from "@/data/api";
+import { getUsersFromDB } from "@/data/api";
 import { Now } from "./now";
 
 export async function UserList({ fakeTime }: { fakeTime?: number }) {
-  const users = await fetchUsers(fakeTime);
+  const users = await getUsersFromDB(fakeTime);
 
   return (
     <div>

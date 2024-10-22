@@ -6,7 +6,7 @@ import { RefreshPageButton } from "@/components/refresh-page-button";
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
-  // const count = await fetchCount();
+  // const count = await getCountFromDB();
 
   return (
     <div>

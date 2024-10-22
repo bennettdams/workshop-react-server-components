@@ -1,12 +1,12 @@
 import { Now } from "@/components/now";
 import { PageHeader } from "@/components/page-header";
 import { RefreshPageButton } from "@/components/refresh-page-button";
-import { fetchUsers } from "@/data/api";
+import { getUsersFromDB } from "@/data/api";
 
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
-  const users = await fetchUsers();
+  const users = await getUsersFromDB();
 
   return (
     <div>

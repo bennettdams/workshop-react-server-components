@@ -3,10 +3,10 @@
 import { addTodoAction } from "@/actions/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ApiTodo } from "@/data/api";
+import { TodoFromDB } from "@/data/api";
 import { useOptimistic, useState, useTransition } from "react";
 
-export function InputAddTodo({ todos }: { todos: ApiTodo[] }) {
+export function InputAddTodo({ todos }: { todos: TodoFromDB[] }) {
   const [inputText, setInputText] = useState("");
   const [isPending, startTransition] = useTransition();
   const [todosOptimistic, setTodosOptimistic] = useOptimistic(todos);
@@ -22,7 +22,7 @@ export function InputAddTodo({ todos }: { todos: ApiTodo[] }) {
       <Button
         className="mt-2"
         onClick={async () => {
-          const todoNew: ApiTodo = {
+          const todoNew: TodoFromDB = {
             id: Math.random().toString(),
             text: inputText,
           };

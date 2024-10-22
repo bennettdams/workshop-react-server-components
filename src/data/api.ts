@@ -1,34 +1,34 @@
 import { unstable_noStore } from "next/cache";
 
-export type ApiTodo = {
+export type TodoFromDB = {
   id: string;
   text: string;
 };
 
-const todosInitial: ApiTodo[] = [
+const todosInitial: TodoFromDB[] = [
   { id: "1", text: "Learn React" },
   { id: "2", text: "Understand caching" },
   { id: "3", text: "Start woodworking" },
 ];
 
 /** Fake database. This only works in dev, not for the built application. */
-export const db: { todos: ApiTodo[] } = {
+export const db: { todos: TodoFromDB[] } = {
   todos: todosInitial,
 };
 
-export async function fetchTodos(): Promise<ApiTodo[]> {
+export async function getTodosFromDB(): Promise<TodoFromDB[]> {
   unstable_noStore();
   await new Promise((r) => setTimeout(r, 200));
 
   return db.todos;
 }
 
-export type ApiUser = {
+export type UserFromDB = {
   id: string;
   name: string;
 };
 
-export async function fetchUsers(fakeTime = 2_000): Promise<ApiUser[]> {
+export async function getUsersFromDB(fakeTime = 2_000): Promise<UserFromDB[]> {
   unstable_noStore();
   await new Promise((r) => setTimeout(r, fakeTime));
 
@@ -40,7 +40,7 @@ export async function fetchUsers(fakeTime = 2_000): Promise<ApiUser[]> {
   ];
 }
 
-export async function fetchCount(): Promise<number> {
+export async function getCountFromDB(): Promise<number> {
   unstable_noStore();
   await new Promise((r) => setTimeout(r, 2_000));
 

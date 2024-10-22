@@ -2,10 +2,12 @@
 
 // ######### All exported functions in this file will automatically be available as endpoints publicly.
 
-import { type ApiTodo, db } from "@/data/api";
+import { type TodoFromDB, db } from "@/data/api";
 import { revalidatePath } from "next/cache";
 
-export async function addTodoAction(todoNew: ApiTodo): Promise<ApiTodo[]> {
+export async function addTodoAction(
+  todoNew: TodoFromDB,
+): Promise<TodoFromDB[]> {
   console.log("❎ Called: addTodo | todoNew:", todoNew);
   await new Promise((r) => setTimeout(r, 200));
 
@@ -19,7 +21,7 @@ export async function addTodoAction(todoNew: ApiTodo): Promise<ApiTodo[]> {
 type FormState =
   | {
       status: "ok";
-      data: ApiTodo[];
+      data: TodoFromDB[];
       error: null;
     }
   | {

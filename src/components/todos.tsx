@@ -1,10 +1,10 @@
 import { FormAddTodo } from "@/app/04-server-functions/form-add-todo";
 import { InputAddTodo } from "@/app/04-server-functions/input-add-todo";
-import { fetchTodos } from "@/data/api";
+import { getTodosFromDB } from "@/data/api";
 import { Now } from "./now";
 
 export async function Todos() {
-  const todos = await fetchTodos();
+  const todos = await getTodosFromDB();
 
   return (
     <div>
