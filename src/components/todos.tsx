@@ -24,6 +24,7 @@ export async function Todos() {
       <div className="mt-10">
         <p>Form on the server</p>
 
+        {/* Variant 1: Form from the server with inline Server Action */}
         <form
           action={async (formData) => {
             "use server";
@@ -52,12 +53,14 @@ export async function Todos() {
         </form>
       </div>
 
+      {/* Variant 2: Form from the client with Server Action state */}
       <div className="mt-10">
         <p>Form (Client) with action state</p>
 
         <FormAddTodo todos={todos} />
       </div>
 
+      {/* Variant 3: Input from the client with Server Action via manual transition */}
       <div className="mt-10">
         <p>Input (Client) with transition</p>
 
