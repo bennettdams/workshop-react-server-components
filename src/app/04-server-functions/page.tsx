@@ -6,16 +6,6 @@ import { Suspense } from "react";
 
 export const dynamic = "force-dynamic";
 
-// form on server
-// form with action state
-// input with transition
-// build output
-// action ID -> hidden input
-// returns serialized component tree -> update page
-// cURL
-
-// action={foo} -> Server Action | onClick={foo} -> Server Function
-
 export default async function Page() {
   return (
     <div>

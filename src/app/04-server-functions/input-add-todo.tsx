@@ -9,6 +9,7 @@ import { useOptimistic, useState, useTransition } from "react";
 export function InputAddTodo({ todos }: { todos: TodoFromDB[] }) {
   const [inputText, setInputText] = useState("");
   const [isPending, startTransition] = useTransition();
+
   const [todosOptimistic, setTodosOptimistic] = useOptimistic(todos);
 
   return (
@@ -28,7 +29,9 @@ export function InputAddTodo({ todos }: { todos: TodoFromDB[] }) {
           };
           startTransition(async () => {
             setTodosOptimistic((prev) => [...prev, todoNew]);
+
             await addTodoAction(todoNew);
+
             setInputText("");
           });
         }}

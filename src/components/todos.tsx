@@ -1,7 +1,10 @@
 import { FormAddTodo } from "@/app/04-server-functions/form-add-todo";
 import { InputAddTodo } from "@/app/04-server-functions/input-add-todo";
-import { getTodosFromDB } from "@/data/api";
+import { db, getTodosFromDB } from "@/data/api";
+import { revalidatePath } from "next/cache";
 import { Now } from "./now";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 export async function Todos() {
   const todos = await getTodosFromDB();
@@ -18,14 +21,14 @@ export async function Todos() {
 
       <Now />
 
-      {/* <div className="mt-10">
+      <div className="mt-10">
         <p>Form on the server</p>
 
         <form
           action={async (formData) => {
             "use server";
 
-            // don't forget validation
+            // don't forget validation (-> public endpoint & untrusted inputs)
 
             console.log("Form data:", formData);
             console.log("Input text:", formData.get("my-input"));
@@ -40,13 +43,14 @@ export async function Todos() {
               { id: Math.random().toString(), text: inputText },
             ];
 
+            // trigger "reload" of Server Component
             revalidatePath("/04-server-functions");
           }}
         >
           <Input name="my-input" type="text" placeholder="Some text.." />
           <Button className="mt-2">Add</Button>
         </form>
-      </div> */}
+      </div>
 
       <div className="mt-10">
         <p>Form (Client) with action state</p>

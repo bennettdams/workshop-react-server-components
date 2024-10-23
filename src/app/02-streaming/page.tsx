@@ -2,12 +2,14 @@ import { Now } from "@/components/now";
 import { PageHeader } from "@/components/page-header";
 import { RefreshPageButton } from "@/components/refresh-page-button";
 import { UserList } from "@/components/user-list";
-// import { Suspense } from "react";
+import { getUsersFromDB } from "@/data/api";
+import { Suspense } from "react";
+import { UserListPromise } from "./client-user-list";
 
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
-  // const userListPromise = getUsersFromDB();
+  const userListPromise = getUsersFromDB();
 
   return (
     <div>
@@ -17,10 +19,13 @@ export default async function Page() {
         <Now />
 
         <div>
-          {/* <Suspense fallback={"Loading users.."}> */}
-          <UserList />
-          {/* <UserList fakeTime={3_000} /> */}
-          {/* </Suspense> */}
+          <Suspense fallback="1 Loading users..">
+            <UserList fakeTime={2_000} />
+
+            {/* <Suspense fallback="2 Loading users..">
+              <UserList fakeTime={4_000} />
+            </Suspense> */}
+          </Suspense>
         </div>
 
         {/* <div>
@@ -39,9 +44,9 @@ export default async function Page() {
           </Suspense>
         </div> */}
 
-        {/* <Suspense fallback={"Load "}>
+        <Suspense fallback="Loading...">
           <UserListPromise userListPromise={userListPromise} />
-        </Suspense> */}
+        </Suspense>
 
         <RefreshPageButton />
       </div>

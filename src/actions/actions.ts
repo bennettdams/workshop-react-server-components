@@ -11,8 +11,11 @@ export async function addTodoAction(
   console.log("❎ Called: addTodo | todoNew:", todoNew);
   await new Promise((r) => setTimeout(r, 200));
 
+  // don't forget validation (-> public endpoint & untrusted inputs)
+
   db.todos = [...db.todos, todoNew];
 
+  // trigger "reload" of Server Component
   revalidatePath("/04-server-functions");
 
   return db.todos;
@@ -39,6 +42,8 @@ export async function addTodoActionForForm(
   console.log("Form data:", formData);
   console.log("Input text:", formData.get("my-input"));
 
+  // don't forget validation (-> public endpoint & untrusted inputs)
+
   await new Promise((r) => setTimeout(r, 200));
 
   const inputText = formData.get("my-input");
@@ -48,6 +53,7 @@ export async function addTodoActionForForm(
 
   db.todos = [...db.todos, { id: Math.random().toString(), text: inputText }];
 
+  // trigger "reload" of Server Component
   revalidatePath("/04-server-functions");
 
   if (Math.random() > 0.5) {
