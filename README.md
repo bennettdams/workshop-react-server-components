@@ -4,6 +4,10 @@ This app was used at a workshop to introduce React Server Components & Server Fu
 
 October 2024
 
+## Workshop notes
+
+See https://github.com/bennettdams/workshop-react-server-components/blob/main/workshop-notes.png
+
 ## Pages
 
 - 01 - Intro: Short introduction that shows using server resources in a React Server Component
